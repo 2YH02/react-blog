@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+body,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h4, p {
+  padding: 0;
+  margin: 0;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* nav스타일링 */
+.main-nav {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(150, 150, 150);
+  color: rgb(150, 150, 150);
+}
+
+.main-nav a:hover {
+  color: black;
+}
+
+.main-title {
+  margin-left: 3rem;
+}
+
+.main-nav div {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.main-link {
+  margin-right: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-nav ul {
+  display: flex;
 }
+
+.main-nav ul li {
+  padding: 15px 20px;
+}
+/* post카드 스타일링 */
+#main-blog {
+  margin-top: 5rem;
+}
+.post-list {
+  width: 40rem;
+  margin: 2rem auto;
+  border-bottom: 1px solid;
+}
+
+.post-list h4, p {
+  /* border: 1px solid red; */
+  padding: 0.5rem;
+}
+
