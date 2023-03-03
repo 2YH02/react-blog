@@ -11,7 +11,8 @@ a {
   text-decoration: none;
 }
 
-h4, p {
+h4,
+p {
   padding: 0;
   margin: 0;
 }
@@ -60,8 +61,12 @@ h4, p {
   border-bottom: 1px solid;
 }
 
-.post-list h4, p {
+.post-list h4,
+p {
   /* border: 1px solid red; */
   padding: 0.5rem;
 }
 
+.like-btn {
+  cursor: pointer;
+}

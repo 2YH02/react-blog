@@ -1,8 +1,24 @@
+/* eslint-disable */
+
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  let post = "첫 게시물";
+  let postLists = ["첫번째 게시물", "두번째 게시물", "세번째 게시물"];
+  let [posts, setPost] = useState(postLists);
+  let [like, setLike] = useState("🤍");
+  let [likeSt, setLikeSt] = useState(false);
+
+  function changeLikeBtn() {
+    if (!likeSt) {
+      setLikeSt(true);
+      setLike("🧡");
+    } else {
+      setLikeSt(false);
+      setLike("🤍");
+    }
+  }
 
   return (
     <div className="App">
@@ -33,19 +49,24 @@ function App() {
         <ul>
           <li className="post-list">
             <div>
-              <h4>글제목</h4>
+              <h4>
+                {posts[0]}{" "}
+                <span onClick={changeLikeBtn} className="like-btn">
+                  {like}
+                </span>
+              </h4>
               <p>1월 1일</p>
             </div>
           </li>
           <li className="post-list">
             <div>
-              <h4>글제목</h4>
+              <h4>{posts[1]}</h4>
               <p>1월 1일</p>
             </div>
           </li>
           <li className="post-list">
             <div>
-              <h4>글제목</h4>
+              <h4>{posts[2]}</h4>
               <p>1월 1일</p>
             </div>
           </li>
