@@ -7,16 +7,18 @@ import { useState } from "react";
 function App() {
   let postLists = ["첫번째 게시물", "두번째 게시물", "세번째 게시물"];
   let [posts, setPost] = useState(postLists);
-  let [like, setLike] = useState("🤍");
-  let [likeSt, setLikeSt] = useState(false);
+  let [like, setLike] = useState(["🤍", "🤍", "🤍"]);
+  let [modal, setModal] = useState(false);
+  let [title, setTitle] = useState(0);
 
-  function changeLikeBtn() {
-    if (!likeSt) {
-      setLikeSt(true);
-      setLike("🧡");
+  function changeLikeBtn(i) {
+    let copyLike = [...like];
+    if (copyLike[i] === "🤍") {
+      copyLike[i] = "🧡";
+      setLike(copyLike);
     } else {
-      setLikeSt(false);
-      setLike("🤍");
+      copyLike[i] = "🤍";
+      setLike(copyLike);
     }
   }
 
@@ -47,31 +49,44 @@ function App() {
 
       <section id="main-blog">
         <ul>
-          <li className="post-list">
-            <div>
-              <h4>
-                {posts[0]}{" "}
-                <span onClick={changeLikeBtn} className="like-btn">
-                  {like}
-                </span>
-              </h4>
-              <p>1월 1일</p>
-            </div>
-          </li>
-          <li className="post-list">
-            <div>
-              <h4>{posts[1]}</h4>
-              <p>1월 1일</p>
-            </div>
-          </li>
-          <li className="post-list">
-            <div>
-              <h4>{posts[2]}</h4>
-              <p>1월 1일</p>
-            </div>
-          </li>
+          {posts.map((v, i) => {
+            return (
+              <li className="post-list">
+                <div>
+                  <h4
+                    onClick={() => {
+                      setModal(!modal);
+                      setTitle(posts[i]);
+                    }}
+                  >
+                    {v}{" "}
+                    <span
+                      onClick={() => {
+                        changeLikeBtn(i);
+                      }}
+                      className="like-btn"
+                    >
+                      {like[i]}
+                    </span>
+                  </h4>
+                  <p>1월 1일</p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </section>
+
+      <section>{modal ? <Modal title={title} posts={posts} /> : null}</section>
+    </div>
+  );
+}
+function Modal(props) {
+  return (
+    <div className="post-modal">
+      <h4>{props.title}</h4>
+      <p>날짜</p>
+      <p>내용</p>
     </div>
   );
 }

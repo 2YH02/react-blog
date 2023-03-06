@@ -63,10 +63,24 @@ p {
 
 .post-list h4,
 p {
-  /* border: 1px solid red; */
   padding: 0.5rem;
 }
 
 .like-btn {
   cursor: pointer;
+}
+
+/* 모달창 */
+.post-modal {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #eee;
+  text-align: left;
+  width: 50rem;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.post-modal h4 {
+  padding: 8px;
 }
