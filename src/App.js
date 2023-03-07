@@ -5,11 +5,15 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  let postLists = ["첫번째 게시물", "두번째 게시물", "세번째 게시물"];
-  let [posts, setPost] = useState(postLists);
+  let [posts, setPost] = useState([
+    "첫번째 게시물",
+    "두번째 게시물",
+    "세번째 게시물",
+  ]);
   let [like, setLike] = useState(["🤍", "🤍", "🤍"]);
   let [modal, setModal] = useState(false);
   let [title, setTitle] = useState(0);
+  let [input, setInput] = useState("");
 
   function changeLikeBtn(i) {
     let copyLike = [...like];
@@ -61,7 +65,8 @@ function App() {
                   >
                     {v}{" "}
                     <span
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         changeLikeBtn(i);
                       }}
                       className="like-btn"
@@ -76,6 +81,28 @@ function App() {
           })}
         </ul>
       </section>
+
+      <div id="post-input">
+        <input
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+        ></input>
+        <button
+          id="post-btn"
+          onClick={() => {
+            let copy1 = [...posts];
+            copy1.push(input);
+            setPost(copy1);
+            let copy = [...like];
+            copy.push("🤍");
+            setLike(copy);
+            console.log(input);
+          }}
+        >
+          post
+        </button>
+      </div>
 
       <section>{modal ? <Modal title={title} posts={posts} /> : null}</section>
     </div>

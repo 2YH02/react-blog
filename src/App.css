@@ -56,9 +56,14 @@ p {
   margin-top: 5rem;
 }
 .post-list {
+  position: relative;
   width: 40rem;
   margin: 2rem auto;
   border-bottom: 1px solid;
+}
+
+.post-list h4 {
+  display: inline-block;
 }
 
 .post-list h4,
@@ -67,6 +72,15 @@ p {
 }
 
 .like-btn {
+  cursor: pointer;
+}
+
+#delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: white;
   cursor: pointer;
 }
 
@@ -83,4 +97,13 @@ p {
 
 .post-modal h4 {
   padding: 8px;
+}
+
+/* 포스트 */
+#post-input {
+  text-align: center;
+}
+
+#post-btn {
+  cursor: pointer;
 }
