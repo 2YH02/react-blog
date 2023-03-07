@@ -76,6 +76,19 @@ function App() {
                   </h4>
                   <p>1월 1일</p>
                 </div>
+                <button
+                  id="delete-btn"
+                  onClick={() => {
+                    let copy1 = [...posts];
+                    copy1.splice(i, 1);
+                    setPost(copy1);
+                    let copy = [...like];
+                    copy.splice(i, 1);
+                    setLike(copy);
+                  }}
+                >
+                  X
+                </button>
               </li>
             );
           })}
